@@ -1,0 +1,51 @@
+{
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "sol"
+  ],
+  "bin": {
+    "sol": "sol"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "postbuild": "mkdir dist/api && cp src/api/openapi.yml dist/api/",
+    "pretest": "(cd ../../client && yarn && yarn build && yarn link) && yarn link @identity.com/sol-did-client",
+    "test": "tsdx test",
+    "lint": "tsdx lint --maxWarnings 0",
+    "prepublishOnly": "yarn build",
+    "dev": "ts-node-dev src/index.ts",
+    "app": "node dist/index.js",
+    "buildAndPush": "docker-compose build && docker push identitydotcom/driver-did-sol"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "sol-driver",
+  "author": "dankelleher",
+  "module": "dist/sol-driver.esm.js",
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "ts-node-dev": "^1.1.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "@identity.com/sol-did-client": "^1.0.0-beta",
+    "cors": "^2.8.5",
+    "did-resolver": "^3.0.1",
+    "oas3-tools": "^2.2.3"
+  }
+}

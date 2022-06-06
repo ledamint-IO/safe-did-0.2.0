@@ -1,0 +1,53 @@
+{
+  "version": "0.1.2",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "https://github.com/identity-com/sol-did",
+  "homepage": "https://github.com/identity-com/sol-did",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "yarn mocha",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "repl": "yarn build && yarn local-repl"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "@identity.com/dids",
+  "author": "dankelleher",
+  "module": "dist/dids.esm.js",
+  "devDependencies": {
+    "@types/chai": "^4.2.15",
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "local-repl": "^4.0.0",
+    "mocha": "^8.3.2",
+    "ts-node": "^9.1.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "@digitalbazaar/ed25519-verification-key-2020": "^2.0.0",
+    "@digitalbazaar/x25519-key-agreement-key-2019": "^5.0.0",
+    "@identity.com/sol-did-client": "^1.0.0-beta",
+    "@solana/web3.js": "^1.21.0",
+    "crypto-ld": "^5.0.0",
+    "did-method-key": "^0.7.0",
+    "did-resolver": "^3.0.2"
+  }
+}
